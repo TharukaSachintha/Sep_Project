@@ -1,0 +1,30 @@
+<body>
+  <div id="navbar"></div>
+  <script src="js/main.js"></script>
+  <script>
+    fetch("nav.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+  </script>
+</body>
+
+<nav class="navbar">
+  <div class="logo">
+    <img
+      src="images/Group 328.png"
+      alt="Logo"
+      style="height: 32px; vertical-align: middle"
+    />
+  </div>
+  <ul class="nav-links">
+    <li><a href="home.php">Home</a></li>
+    <li><a href="about.php">About us</a></li>
+    <li><a href="view_courses.php">Courses</a></li>
+    <li><a href="#">Classes</a></li>
+    <li><a href="contact.php">Contact us</a></li>
+    <li><a href="login.php" class="btn">Sign in</a></li>
+  </ul>
+  <div class="hamburger">&#9776;</div>
+</nav>

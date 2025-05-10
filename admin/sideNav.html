@@ -1,0 +1,155 @@
+<style>
+  :root {
+    --primary: #4b2563;
+    --accent: #ff7f32;
+    --bg: #fdf6ef;
+    --text: #222;
+    --muted: #888;
+    --radius: 1.5rem;
+    --white: #fff;
+  }
+
+  .admin-sidebar {
+    min-height: 100vh;
+    background: var(--primary);
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 250px;
+    transition: all 0.3s ease;
+  }
+
+  .admin-sidebar .brand {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+  }
+
+  .admin-sidebar .brand h3 {
+    color: var(--white);
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .admin-sidebar .nav-item {
+    margin: 5px 15px;
+  }
+
+  .admin-sidebar .nav-link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+  }
+
+  .admin-sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+  }
+
+  .admin-sidebar .nav-link.active {
+    background-color: var(--accent);
+    color: var(--white);
+  }
+
+  .admin-sidebar .nav-link i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+  }
+
+  .admin-sidebar .nav-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 15px 0;
+  }
+
+  .admin-sidebar .logout-section {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .admin-sidebar .logout-btn {
+    background-color: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .admin-sidebar .logout-btn:hover {
+    background-color: #e66d28;
+    transform: translateY(-2px);
+  }
+
+  .admin-sidebar .logout-btn i {
+    margin-right: 10px;
+  }
+
+  .main-content-wrapper {
+    margin-left: 250px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    background-color: var(--bg);
+    min-height: 100vh;
+  }
+</style>
+
+<div class="admin-sidebar">
+  <div class="brand">
+    <h3>Admin Panel</h3>
+  </div>
+
+  <div class="nav-item">
+    <a href="courses.html" class="nav-link">
+      <i class="fas fa-book"></i>
+      Courses
+    </a>
+  </div>
+
+  <div class="nav-item">
+    <a href="view-users.html" class="nav-link">
+      <i class="fas fa-users"></i>
+      Registered Users
+    </a>
+  </div>
+
+  <div class="nav-divider"></div>
+
+  <div class="logout-section">
+    <button class="logout-btn" onclick="handleLogout()">
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </button>
+  </div>
+</div>
+
+<script>
+  function handleLogout() {
+    console.log("Logging out...");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach((link) => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
